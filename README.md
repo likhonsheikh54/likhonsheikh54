@@ -10,7 +10,7 @@
 
 ---
 
-## 🎯 দক্ষতা (Skills)
+## 🎯 Skills
 
 <div align="center">
 
@@ -18,7 +18,6 @@
 ![](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
 ![](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
 ![](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-
 ![](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
 ![](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
 ![](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
@@ -27,27 +26,27 @@
 
 ---
 
-## ⚡ স্ট্যাটস (Stats)
+## ⚡ Stats
 
 <div align="center">
 
-![GitHub স্ট্রিক](https://github-readme-streak-stats.herokuapp.com/?user=likhonsheikh54&theme=tokyonight&hide_border=true)
+![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=likhonsheikh54&theme=tokyonight&hide_border=true)
 ![GitHub Stats](https://github-readme-stats.vercel.app/api?username=likhonsheikh54&show_icons=true&theme=tokyonight&hide_border=true)
 
 </div>
 
 ---
 
-## 🚀 লক্ষ্য (Goals)
-- 🌟 **ফুলস্ট্যাক প্রজেক্ট ডেভেলপমেন্ট**  
-- 💡 **ওপেন সোর্স প্রজেক্টে কন্ট্রিবিউট করা**  
-- 📚 **নতুন টেকনোলজি শেখা এবং ইমপ্লিমেন্ট করা**
+## 🚀 Goals
+- 🌟 **Fullstack Project Development**
+- 💡 **Contribute to Open Source Projects**
+- 📚 **Learn and Implement New Technologies**
 
 ---
 
 <div align="center">
 
-### 📫 যোগাযোগ (Contact Me)
+### 📫 Contact Me
 
 [![](https://img.shields.io/badge/GitHub-black?style=for-the-badge&logo=github)](https://github.com/likhonsheikh54)
 [![](https://img.shields.io/badge/Twitter-blue?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/likhonsheikh54)

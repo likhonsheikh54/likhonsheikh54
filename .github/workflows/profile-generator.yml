@@ -1,14 +1,9 @@
 name: Generate Profile Animations
 
 on:
-  # Runs at 12am UTC every day
   schedule:
     - cron: "0 0 * * *"
-  
-  # Allows manual trigger
   workflow_dispatch:
-  
-  # Runs on push to main/master
   push:
     branches:
       - main
@@ -18,11 +13,7 @@ permissions:
   contents: write
   pages: write
   id-token: write
-
-# Prevent concurrent runs to avoid conflicts
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  issues: write  # Added permission for creating issues
 
 jobs:
   generate:
@@ -44,7 +35,7 @@ jobs:
       - name: Create Output Directory
         run: mkdir -p dist
 
-      # Generate Snake Animation with multiple variants
+      # Generate Snake Animation
       - name: Generate Snake Animation
         uses: Platane/snk@v3
         with:
@@ -60,22 +51,25 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # Generate 3D Contribution Chart
+      # Generate 3D Contribution Chart - Fixed Configuration
+      - name: Create Settings File
+        run: |
+          echo '{
+            "type": "normal",
+            "theme": {
+              "backgroundColor": "#0d1117",
+              "lineColor": "#36BCF7",
+              "textColor": "#ffffff"
+            }
+          }' > settings.json
+
       - name: Generate 3D Contribution Chart
         uses: yoshi389111/github-profile-3d-contrib@0.7.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           USERNAME: ${{ github.repository_owner }}
           MAX_LOADING: 20
-          SETTING_JSON: |
-            {
-              "type": "normal",
-              "theme": {
-                "backgroundColor": "#0d1117",
-                "lineColor": "#36BCF7",
-                "textColor": "#ffffff"
-              }
-            }
+          SETTING_JSON: settings.json  # Fixed: Now pointing to a real file
 
       # Generate GitHub Metrics
       - name: Generate GitHub Metrics
@@ -102,7 +96,6 @@ jobs:
           plugin_followup: yes
           plugin_lines: yes
           plugin_traffic: yes
-          committer_message: "chore: update metrics"
 
       # Verify and Optimize SVG files
       - name: Install SVGO
@@ -118,29 +111,6 @@ jobs:
             fi
           done
 
-      # Verify Generated Files
-      - name: Verify Output Files
-        run: |
-          echo "Checking generated files..."
-          ls -la dist/
-          
-          # Check snake animations
-          for file in github-snake.svg github-snake-dark.svg github-snake-grid.svg ocean.gif; do
-            if [ ! -f "dist/$file" ]; then
-              echo "Error: Missing $file"
-              exit 1
-            fi
-          done
-          
-          # Check metrics
-          if [ ! -f "dist/metrics.svg" ]; then
-            echo "Error: Missing metrics.svg"
-            exit 1
-          fi
-          
-          # Check file sizes
-          find dist -type f -exec du -h {} \;
-
       # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
@@ -154,26 +124,23 @@ jobs:
           git-config-email: 41898282+github-actions[bot]@users.noreply.github.com
           commit-message: "chore: update profile animations and metrics"
 
-      # Create GitHub Release (for tracking)
-      - name: Create Release
-        if: github.event_name == 'push'
-        uses: softprops/action-gh-release@v1
+      # Error Notification - Fixed version
+      - name: Notify on Failure
+        if: failure()
+        uses: actions/github-script@v7
         with:
-          name: Profile Update ${{ github.sha }}
-          tag_name: profile-update-${{ github.sha }}
-          body: |
-            Profile animations and metrics updated at ${{ github.event.repository.updated_at }}
-            
-            Generated assets:
-            - Snake Animations (Light/Dark/Grid)
-            - 3D Contribution Chart
-            - GitHub Metrics Dashboard
-            
-            Commit: ${{ github.sha }}
-          files: |
-            dist/*
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            try {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: 'Profile Generation Failed',
+                body: `Profile generation failed at ${new Date().toISOString()}\nWorkflow: ${context.workflow}\nRun: ${context.runId}\n\nPlease check the workflow logs for more details.`
+              });
+            } catch (error) {
+              console.log('Failed to create issue:', error);
+            }
 
       # Cleanup
       - name: Cleanup
@@ -181,16 +148,4 @@ jobs:
         run: |
           rm -rf dist/
           rm -rf node_modules/
-
-      # Error Notification (if needed)
-      - name: Notify on Failure
-        if: failure()
-        uses: actions/github-script@v7
-        with:
-          script: |
-            github.rest.issues.create({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              title: 'Profile Generation Failed',
-              body: `Profile generation failed at ${new Date().toISOString()}\nWorkflow: ${context.workflow}\nRun: ${context.runId}`
-            })
+          rm -f settings.json

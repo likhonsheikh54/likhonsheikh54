@@ -27,11 +27,22 @@
 </div>
 
 <!-- Snake Animation -->
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/likhonsheikh54/likhonsheikh54/output/github-snake-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/likhonsheikh54/likhonsheikh54/output/github-snake.svg" />
-  <img alt="github-snake" src="https://raw.githubusercontent.com/likhonsheikh54/likhonsheikh54/output/github-snake.svg" />
-</picture>
+<div align="center">
+  <picture>
+    <source
+      media="(prefers-color-scheme: dark)"
+      srcset="https://raw.githubusercontent.com/likhonsheikh54/likhonsheikh54/output/github-snake-dark.svg"
+    />
+    <source
+      media="(prefers-color-scheme: light)"
+      srcset="https://raw.githubusercontent.com/likhonsheikh54/likhonsheikh54/output/github-snake.svg"
+    />
+    <img
+      alt="github contribution grid snake animation"
+      src="https://raw.githubusercontent.com/likhonsheikh54/likhonsheikh54/output/github-snake.svg"
+    />
+  </picture>
+</div>
 
 <!-- Activity Graph -->
 <img src="https://github-readme-activity-graph.vercel.app/graph?username=likhonsheikh54&custom_title=Contribution%20Graph&bg_color=0d1117&color=36BCF7&line=36BCF7&point=36BCF7&area_color=36BCF7&title_color=36BCF7&area=true&hide_border=true" width="100%"/>

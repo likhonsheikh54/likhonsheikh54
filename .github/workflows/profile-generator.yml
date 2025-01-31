@@ -28,14 +28,19 @@ jobs:
           persist-credentials: false
           fetch-depth: 0
 
-      # Generate Snake Animation
+      # Install canvas dependency (required by Platane/snk)
+      - name: Install canvas module
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libpango1.0-dev libcairo2-dev libjpeg-dev libgif-dev
+          npm install canvas
+
+      # Generate Snake Animation (Updated Action Version)
       - name: Generate Snake Animation
         uses: Platane/snk/svg-only@v3
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: dist/github-snake.svg, dist/github-snake-dark.svg, dist/github-snake-grid.svg, dist/ocean.gif
-          color_snake: '#36BCF7'
-          color_dots: '#24292e,#1f6feb,#238636,#f85149,#db61a2'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

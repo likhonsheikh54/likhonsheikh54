@@ -63,7 +63,7 @@ jobs:
       - name: Generate 3D Contribution Chart
         uses: yoshi389111/github-profile-3d-contrib@0.7.1
         with:
-          settings_path: settings.json  # Correctly reference the settings file
+          settings_path: settings.json
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           USERNAME: ${{ github.repository_owner }}
@@ -104,7 +104,7 @@ jobs:
           for file in dist/*.svg; do
             if [ -f "$file" ]; then
               echo "Optimizing $file"
-              svgo --config '{"multipass": true}' -i "$file" -o "${file}.tmp"
+              svgo --multipass -i "$file" -o "${file}.tmp"
               mv "${file}.tmp" "$file"
             fi
           done

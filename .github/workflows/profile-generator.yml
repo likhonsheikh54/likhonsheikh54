@@ -28,11 +28,11 @@ jobs:
           persist-credentials: false
           fetch-depth: 0
 
-      # Generate Snake Animation (using an alternative action)
+      # Generate Snake Animation (Platane action, v2)
       - name: Generate Snake Animation
-        uses: github-contribution-snake/svg-snake@v1.0
+        uses: Platane/snk/svg-only@v2
         with:
-          username: ${{ github.repository_owner }}
+          github_user_name: ${{ github.repository_owner }}
           outputs: dist/github-snake.svg, dist/github-snake-dark.svg, dist/github-snake-grid.svg, dist/ocean.gif
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

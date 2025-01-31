@@ -1,9 +1,8 @@
-# .github/workflows/profile-generator.yml
 name: Profile Generator
 
 on:
   schedule:
-    - cron: "0 0 */7 * *"  # Runs weekly
+    - cron: "0 0 * * 1"  # Runs weekly on Mondays
   workflow_dispatch:  # Allows manual trigger
   push:
     branches:
@@ -20,7 +19,7 @@ concurrency:
 jobs:
   generate:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     
     steps:
       - name: Checkout Repository
@@ -29,24 +28,48 @@ jobs:
           persist-credentials: false
           fetch-depth: 0
 
+      # Generate Snake Animation
       - name: Generate Snake Animation
         uses: Platane/snk/svg-only@v3
         with:
           github_user_name: ${{ github.repository_owner }}
-          outputs: |
-            dist/github-snake.svg
-            dist/github-snake-dark.svg
+          outputs: dist/github-snake.svg, dist/github-snake-dark.svg, dist/github-snake-grid.svg, dist/ocean.gif
+          color_snake: '#36BCF7'
+          color_dots: '#24292e,#1f6feb,#238636,#f85149,#db61a2'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Verify Output
-        run: |
-          mkdir -p dist
-          if [ ! -f "dist/github-snake.svg" ] || [ ! -f "dist/github-snake-dark.svg" ]; then
-            echo "Failed to generate snake animation"
-            exit 1
-          fi
+      # Generate 3D Contribution Chart
+      - name: Generate 3D Contribution Chart
+        uses: yoshi389111/github-profile-3d-contrib@0.7.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USERNAME: ${{ github.repository_owner }}
+          MAX_LOADING: 7
+          SETTING_JSON: dist/settings.json
 
+      # Generate Profile Trophy (with achievements, languages, etc.)
+      - name: Generate Profile Trophy
+        uses: lowlighter/metrics@latest
+        with:
+          filename: dist/metrics.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          base: header, activity, community, repositories, metadata
+          plugin_isocalendar: yes
+          plugin_isocalendar_duration: full-year
+          plugin_languages: yes
+          plugin_languages_details: percentage
+          plugin_achievements: yes
+          plugin_achievements_display: detailed
+          plugin_achievements_threshold: B
+
+      # Optimize SVG files
+      - name: Optimize SVGs
+        run: |
+          sudo apt-get update && sudo apt-get install -y svgo
+          svgo dist/*.svg
+
+      # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
@@ -56,8 +79,9 @@ jobs:
           single-commit: true
           git-config-name: github-actions[bot]
           git-config-email: 41898282+github-actions[bot]@users.noreply.github.com
-          commit-message: "chore: update snake animation"
+          commit-message: "chore: update profile animations and metrics"
 
+      # Clean up
       - name: Clean up
         if: always()
         run: rm -rf dist/

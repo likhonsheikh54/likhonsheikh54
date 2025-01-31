@@ -1,9 +1,14 @@
-name: Profile Generator
+name: Generate Profile Animations
 
 on:
+  # Runs at 12am UTC every day
   schedule:
-    - cron: "0 0 * * 1"  # Runs weekly on Mondays
-  workflow_dispatch:  # Allows manual trigger
+    - cron: "0 0 * * *"
+  
+  # Allows manual trigger
+  workflow_dispatch:
+  
+  # Runs on push to main/master
   push:
     branches:
       - main
@@ -11,7 +16,10 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
+# Prevent concurrent runs to avoid conflicts
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
@@ -19,7 +27,7 @@ concurrency:
 jobs:
   generate:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30
     
     steps:
       - name: Checkout Repository
@@ -28,12 +36,27 @@ jobs:
           persist-credentials: false
           fetch-depth: 0
 
-      # Generate Snake Animation (Platane action, v2)
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Create Output Directory
+        run: mkdir -p dist
+
+      # Generate Snake Animation with multiple variants
       - name: Generate Snake Animation
-        uses: Platane/snk/svg-only@v2
+        uses: Platane/snk@v3
         with:
           github_user_name: ${{ github.repository_owner }}
-          outputs: dist/github-snake.svg, dist/github-snake-dark.svg, dist/github-snake-grid.svg, dist/ocean.gif
+          outputs: |
+            dist/github-snake.svg
+            dist/github-snake-dark.svg
+            dist/github-snake-grid.svg
+            dist/ocean.gif
+          snake_color: '#36BCF7'
+          grid_snake_color: '#36BCF7'
+          grid_color: '#1F6FEB'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -43,31 +66,131 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           USERNAME: ${{ github.repository_owner }}
-          MAX_LOADING: 7
-          SETTING_JSON: dist/settings.json
+          MAX_LOADING: 20
+          SETTING_JSON: |
+            {
+              "type": "normal",
+              "theme": {
+                "backgroundColor": "#0d1117",
+                "lineColor": "#36BCF7",
+                "textColor": "#ffffff"
+              }
+            }
 
-      # Generate Profile Trophy (with achievements, languages, etc.)
-      - name: Generate Profile Trophy
+      # Generate GitHub Metrics
+      - name: Generate GitHub Metrics
         uses: lowlighter/metrics@latest
         with:
           filename: dist/metrics.svg
           token: ${{ secrets.GITHUB_TOKEN }}
-          base: header, activity, community, repositories, metadata
-          plugin_isocalendar: yes
-          plugin_isocalendar_duration: full-year
+          base: header, activity, community, repositories
+          config_timezone: Asia/Dhaka
           plugin_languages: yes
-          plugin_languages_details: percentage
+          plugin_languages_details: bytes-size, percentage
+          plugin_languages_sections: most-used, recently-used
+          plugin_isocalendar: yes
+          plugin_isocalendar_duration: half-year
+          plugin_habits: yes
+          plugin_habits_days: 14
+          plugin_habits_facts: yes
           plugin_achievements: yes
           plugin_achievements_display: detailed
           plugin_achievements_threshold: B
+          plugin_activity: yes
+          plugin_activity_days: 14
+          plugin_activity_filter: all
+          plugin_followup: yes
+          plugin_lines: yes
+          plugin_traffic: yes
+          committer_message: "chore: update metrics"
 
-      # Optimize SVG files
-      - name: Optimize SVGs
+      # Verify and Optimize SVG files
+      - name: Install SVGO
+        run: npm install -g svgo
+
+      - name: Optimize SVG Files
         run: |
-          sudo apt-get update && sudo apt-get install -y svgo
-          svgo dist/*.svg
+          for file in dist/*.svg; do
+            if [ -f "$file" ]; then
+              echo "Optimizing $file"
+              svgo --config '{"multipass": true}' -i "$file" -o "${file}.tmp"
+              mv "${file}.tmp" "$file"
+            fi
+          done
 
-      # Clean up
-      - name: Clean up
+      # Verify Generated Files
+      - name: Verify Output Files
+        run: |
+          echo "Checking generated files..."
+          ls -la dist/
+          
+          # Check snake animations
+          for file in github-snake.svg github-snake-dark.svg github-snake-grid.svg ocean.gif; do
+            if [ ! -f "dist/$file" ]; then
+              echo "Error: Missing $file"
+              exit 1
+            fi
+          done
+          
+          # Check metrics
+          if [ ! -f "dist/metrics.svg" ]; then
+            echo "Error: Missing metrics.svg"
+            exit 1
+          fi
+          
+          # Check file sizes
+          find dist -type f -exec du -h {} \;
+
+      # Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist
+          target-folder: profile-assets
+          branch: output
+          clean: true
+          single-commit: true
+          git-config-name: github-actions[bot]
+          git-config-email: 41898282+github-actions[bot]@users.noreply.github.com
+          commit-message: "chore: update profile animations and metrics"
+
+      # Create GitHub Release (for tracking)
+      - name: Create Release
+        if: github.event_name == 'push'
+        uses: softprops/action-gh-release@v1
+        with:
+          name: Profile Update ${{ github.sha }}
+          tag_name: profile-update-${{ github.sha }}
+          body: |
+            Profile animations and metrics updated at ${{ github.event.repository.updated_at }}
+            
+            Generated assets:
+            - Snake Animations (Light/Dark/Grid)
+            - 3D Contribution Chart
+            - GitHub Metrics Dashboard
+            
+            Commit: ${{ github.sha }}
+          files: |
+            dist/*
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Cleanup
+      - name: Cleanup
         if: always()
-        run: rm -rf dist/
+        run: |
+          rm -rf dist/
+          rm -rf node_modules/
+
+      # Error Notification (if needed)
+      - name: Notify on Failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: 'Profile Generation Failed',
+              body: `Profile generation failed at ${new Date().toISOString()}\nWorkflow: ${context.workflow}\nRun: ${context.runId}`
+            })

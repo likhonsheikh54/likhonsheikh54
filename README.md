@@ -10,8 +10,6 @@
 
 ---
 
-## 🎯 Skills
-
 <div align="center">
 
 ![](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
@@ -26,8 +24,6 @@
 
 ---
 
-## ⚡ Stats
-
 <div align="center">
 
 ![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=likhonsheikh54&theme=tokyonight&hide_border=true)
@@ -37,16 +33,7 @@
 
 ---
 
-## 🚀 Goals
-- 🌟 **Fullstack Project Development**
-- 💡 **Contribute to Open Source Projects**
-- 📚 **Learn and Implement New Technologies**
-
----
-
 <div align="center">
-
-### 📫 Contact Me
 
 [![](https://img.shields.io/badge/GitHub-black?style=for-the-badge&logo=github)](https://github.com/likhonsheikh54)
 [![](https://img.shields.io/badge/Twitter-blue?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/likhonsheikh54)

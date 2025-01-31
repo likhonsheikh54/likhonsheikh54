@@ -3,20 +3,15 @@ name: Profile Generator
 
 on:
   schedule:
-    - cron: "0 0 */7 * *"  # Runs every 7 days
+    - cron: "0 0 */7 * *"  # Runs weekly
   workflow_dispatch:  # Allows manual trigger
   push:
     branches:
       - main
       - master
-    paths:
-      - 'README.md'
-      - '.github/workflows/profile-generator.yml'
 
 permissions:
   contents: write
-  actions: read
-  security-events: read
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -27,63 +22,43 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     
-    # Prevent workflow from running on forks
-    if: github.repository_owner == 'likhonsheikh54'
-    
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4  # Using latest version
+        uses: actions/checkout@v4
         with:
           persist-credentials: false
           fetch-depth: 0
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
-
-      - name: Security Scan
-        uses: github/codeql-action/init@v2
-        with:
-          languages: javascript
 
       - name: Generate Snake Animation
-        id: snake
-        uses: Platane/snk@v3
+        uses: Platane/snk/svg-only@v3
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
-            dist/github-snake-dark.svg?cache=${{ github.run_id }}
-            dist/github-snake.svg?cache=${{ github.run_id }}
+            dist/github-snake.svg
+            dist/github-snake-dark.svg
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          
-      - name: Verify Generated Files
+
+      - name: Verify Output
         run: |
-          if [ ! -f "dist/github-snake-dark.svg" ] || [ ! -f "dist/github-snake.svg" ]; then
+          mkdir -p dist
+          if [ ! -f "dist/github-snake.svg" ] || [ ! -f "dist/github-snake-dark.svg" ]; then
             echo "Failed to generate snake animation"
             exit 1
           fi
 
-      - name: Push to output branch
+      - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: output
           folder: dist
-          token: ${{ secrets.GITHUB_TOKEN }}
+          target-folder: output
+          branch: output
           clean: true
           single-commit: true
           git-config-name: github-actions[bot]
-          git-config-email: github-actions[bot]@users.noreply.github.com
-          commit-message: "chore: update profile animation [skip ci]"
+          git-config-email: 41898282+github-actions[bot]@users.noreply.github.com
+          commit-message: "chore: update snake animation"
 
       - name: Clean up
         if: always()
-        run: |
-          rm -rf dist/
-          
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+        run: rm -rf dist/

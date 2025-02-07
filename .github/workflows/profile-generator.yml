@@ -35,39 +35,40 @@ jobs:
       - name: Create Output Directory
         run: mkdir -p dist
 
+      - name: Get Repository Owner
+        id: get_owner
+        run: echo "OWNER=$(echo ${{ github.repository_owner }} | tr '[:upper:]' '[:lower:]')" >> $GITHUB_OUTPUT
+
       # Generate Snake Animation
       - name: Generate Snake Animation
         uses: Platane/snk@v3
         with:
-          github_user_name: ${{ github.repository_owner }}
+          github_user_name: ${{ steps.get_owner.outputs.OWNER }}
           outputs: |
             dist/github-snake.svg
-            dist/github-snake-dark.svg
-            dist/github-snake-grid.svg
-            dist/ocean.gif
+            dist/github-snake-dark.svg?palette=github-dark
+            dist/github-snake-grid.svg?color_snake=orange&color_dots=#bfd6f6,#8dbdff,#64a1f4,#4b91f1,#3c7dd9
+            dist/ocean.gif?color_snake=orange&color_dots=#bfd6f6,#8dbdff,#64a1f4,#4b91f1,#3c7dd9
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # Generate 3D Contribution Chart
-      - name: Create Settings File
-        run: |
-          echo '{
-            "type": "normal",
-            "theme": {
-              "backgroundColor": "#0d1117",
-              "lineColor": "#36BCF7",
-              "textColor": "#ffffff"
-            }
-          }' > settings.json
-
       - name: Generate 3D Contribution Chart
         uses: yoshi389111/github-profile-3d-contrib@0.7.1
-        with:
-          settings_path: settings.json
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          USERNAME: ${{ github.repository_owner }}
-          MAX_LOADING: 20
+          USERNAME: ${{ steps.get_owner.outputs.OWNER }}
+          MAX_LOADING: 30
+          SETTING_JSON: |
+            {
+              "type": "rainbow",
+              "displayAvatarCircle": true,
+              "displayTitle": true,
+              "titleFontSize": 25,
+              "displayBorder": true,
+              "borderRadius": 8,
+              "displayAnimations": true
+            }
 
       # Generate GitHub Metrics
       - name: Generate GitHub Metrics
@@ -75,25 +76,88 @@ jobs:
         with:
           filename: dist/metrics.svg
           token: ${{ secrets.GITHUB_TOKEN }}
-          base: header, activity, community, repositories
+          user: ${{ steps.get_owner.outputs.OWNER }}
+          base: header, activity, community, repositories, metadata
           config_timezone: Asia/Dhaka
           plugin_languages: yes
           plugin_languages_details: bytes-size, percentage
           plugin_languages_sections: most-used, recently-used
           plugin_isocalendar: yes
-          plugin_isocalendar_duration: half-year
+          plugin_isocalendar_duration: full-year
           plugin_habits: yes
           plugin_habits_days: 14
           plugin_habits_facts: yes
           plugin_achievements: yes
           plugin_achievements_display: detailed
-          plugin_achievements_threshold: B
+          plugin_achievements_threshold: C
           plugin_activity: yes
           plugin_activity_days: 14
           plugin_activity_filter: all
           plugin_followup: yes
           plugin_lines: yes
           plugin_traffic: yes
+          plugin_notable: yes
+          plugin_discussions: yes
+          plugin_projects: yes
+          plugin_stargazers: yes
+          plugin_topics: yes
+          plugin_topics_sort: stars
+          plugin_topics_mode: mastered
+          plugin_topics_limit: 15
+          plugin_skyline: yes
+          plugin_skyline_year: current-year
+          plugin_skyline_frames: 60
+          plugin_skyline_quality: 0.5
+          plugin_calendar: yes
+          plugin_calendar_limit: 12
+
+      # Generate Contribution Skyline
+      - name: Generate Contribution Skyline
+        uses: lowlighter/metrics@latest
+        with:
+          filename: dist/github-skyline.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          user: ${{ steps.get_owner.outputs.OWNER }}
+          base: ""
+          plugin_skyline: yes
+          plugin_skyline_year: current-year
+          plugin_skyline_frames: 60
+          plugin_skyline_quality: 1
+
+      # Generate Metrics Insights
+      - name: Generate Metrics Insights
+        uses: lowlighter/metrics@latest
+        with:
+          filename: dist/metrics-insights.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          user: ${{ steps.get_owner.outputs.OWNER }}
+          base: ""
+          template: repository
+          repo: ${{ github.repository }}
+          plugin_lines: yes
+          plugin_followup: yes
+          plugin_projects: yes
+          plugin_stargazers: yes
+
+      # Generate Contribution Graph
+      - name: Generate Contribution Graph
+        uses: anmol098/waka-readme-stats@master
+        env:
+          WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USERNAME: ${{ steps.get_owner.outputs.OWNER }}
+          SHOW_LINES_OF_CODE: "True"
+          SHOW_PROFILE_VIEWS: "True"
+          SHOW_COMMIT: "True"
+          SHOW_DAYS_OF_WEEK: "True"
+          SHOW_LANGUAGE: "True"
+          SHOW_OS: "True"
+          SHOW_PROJECTS: "True"
+          SHOW_TIMEZONE: "True"
+          SHOW_EDITORS: "True"
+          SHOW_LANGUAGE_PER_REPO: "True"
+          SHOW_SHORT_INFO: "True"
+          SHOW_LOC_CHART: "True"
 
       # Verify and Optimize SVG files
       - name: Install SVGO
@@ -108,6 +172,29 @@ jobs:
               mv "${file}.tmp" "$file"
             fi
           done
+
+      # Generate README with dynamic content
+      - name: Generate Dynamic README
+        run: |
+          cat << EOF > dist/README.md
+          # Welcome to ${{ steps.get_owner.outputs.OWNER }}'s Profile!
+
+          ## 🐍 Contribution Snake
+          ![Snake animation](https://raw.githubusercontent.com/${{ steps.get_owner.outputs.OWNER }}/${{ steps.get_owner.outputs.OWNER }}/output/profile-assets/github-snake-dark.svg)
+
+          ## 📊 GitHub Stats
+          ![GitHub Stats](https://raw.githubusercontent.com/${{ steps.get_owner.outputs.OWNER }}/${{ steps.get_owner.outputs.OWNER }}/output/profile-assets/metrics.svg)
+
+          ## 🏆 GitHub Trophies
+          ![3D Contribution Chart](https://raw.githubusercontent.com/${{ steps.get_owner.outputs.OWNER }}/${{ steps.get_owner.outputs.OWNER }}/output/profile-assets/profile-3d-contrib/profile-night-rainbow.svg)
+
+          ## 🌠 GitHub Skyline
+          ![GitHub Skyline](https://raw.githubusercontent.com/${{ steps.get_owner.outputs.OWNER }}/${{ steps.get_owner.outputs.OWNER }}/output/profile-assets/github-skyline.svg)
+
+          ## 📈 Contribution Insights
+          ![Metrics Insights](https://raw.githubusercontent.com/${{ steps.get_owner.outputs.OWNER }}/${{ steps.get_owner.outputs.OWNER }}/output/profile-assets/metrics-insights.svg)
+
+          EOF
 
       # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
@@ -146,4 +233,3 @@ jobs:
         run: |
           rm -rf dist/
           rm -rf node_modules/
-          rm -f settings.json

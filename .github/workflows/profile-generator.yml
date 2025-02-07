@@ -53,22 +53,25 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # Generate 3D Contribution Chart
+      - name: Create 3D Contrib Settings
+        run: |
+          echo '{
+            "type": "rainbow",
+            "displayAvatarCircle": true,
+            "displayTitle": true,
+            "titleFontSize": 25,
+            "displayBorder": true,
+            "borderRadius": 8,
+            "displayAnimations": true
+          }' > contrib_settings.json
+
       - name: Generate 3D Contribution Chart
         uses: yoshi389111/github-profile-3d-contrib@0.7.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           USERNAME: ${{ steps.get_owner.outputs.OWNER }}
           MAX_LOADING: 30
-          SETTING_JSON: |
-            {
-              "type": "rainbow",
-              "displayAvatarCircle": true,
-              "displayTitle": true,
-              "titleFontSize": 25,
-              "displayBorder": true,
-              "borderRadius": 8,
-              "displayAnimations": true
-            }
+          SETTING_JSON: contrib_settings.json
 
       # Generate GitHub Metrics
       - name: Generate GitHub Metrics
@@ -233,3 +236,4 @@ jobs:
         run: |
           rm -rf dist/
           rm -rf node_modules/
+          rm -f contrib_settings.json

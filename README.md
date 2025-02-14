@@ -1,68 +1,53 @@
 <div align="center">
 
-![Profile Banner](profile-banner.svg)
+![Header Wave](header-wave.svg)
+
+# Likhon Sheikh
+### System Architect & Tech Innovator
 
 [![Website](https://img.shields.io/badge/Website-likhonsheikh.com-64ffda?style=for-the-badge&logo=google-chrome)](https://likhonsheikh.com)
-[![GitHub followers](https://img.shields.io/github/followers/likhonsheikh54?style=for-the-badge&color=64ffda)](https://github.com/likhonsheikh54)
-[![Location](https://img.shields.io/badge/Location-Austin,%20TX-64ffda?style=for-the-badge&logo=google-maps)](https://goo.gl/maps/Austin)
+[![GitHub](https://img.shields.io/github/followers/likhonsheikh54?style=for-the-badge&color=64ffda&logo=github)](https://github.com/likhonsheikh54)
 
 </div>
 
-## 💫 About Me
+## 👨‍💻 About Me
 
-> Software architect and system designer passionate about building scalable solutions. Based in Austin, Texas, I specialize in distributed systems and high-performance computing.
+![Code Window](code-window.svg)
+
+> Building the future of distributed systems in Austin, Texas. Passionate about high-performance computing and scalable architectures.
+
+## 🎯 Expertise
+
+![Skill Circles](skill-circles.svg)
+
+## 📊 GitHub Activity
+
+![GitHub Contributions](github-contributions.svg)
 
 <div align="center">
 
-![Tech Stack](tech-stack-wheel.svg)
+![Stats Card](stats-card.svg)
 
 </div>
 
-## 🚀 Current Projects
+## 🚀 Featured Projects
 
-```javascript
-const projects = {
-  VorTex: {
-    description: "High-performance computing platform",
-    stack: ["Go", "React", "AWS"],
-    status: "🟢 Active Development"
-  },
-  VΔOS: {
-    description: "Next-gen content delivery network",
-    stack: ["Node.js", "CloudFlare", "Kubernetes"],
-    status: "🟡 Beta Testing"
-  }
-}
+| Project | Description | Tech Stack |
+|---------|-------------|------------|
+| VorTex | High-performance computing platform | `Go` `React` `AWS` |
+| VΔOS | Content delivery network | `Node.js` `CloudFlare` |
+
+## 💻 Weekly Coding
+
+```text
+Go          ⣿⣿⣿⣿⣿⣿⣿⣿⣀⣀⣀⣀  40%
+JavaScript  ⣿⣿⣿⣿⣿⣿⣀⣀⣀⣀⣀⣀  30%
+Python      ⣿⣿⣿⣀⣀⣀⣀⣀⣀⣀⣀⣀  15%
+Docker      ⣿⣿⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀  10%
+Other       ⣿⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀  05%
 ```
 
-## 📊 GitHub Analytics
-
-<div align="center">
-
-![Activity Graph](activity-graph.svg)
-![GitHub Metrics](https://github.com/likhonsheikh54/likhonsheikh54/blob/main/dist/metrics.svg)
-
-[![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=likhonsheikh54&theme=dark&ring=64ffda&fire=64ffda&currStreakLabel=64ffda)](https://github.com/likhonsheikh54)
-
-</div>
-
-## 🛠️ Skills & Expertise
-
-| Category | Technologies |
-|----------|-------------|
-| 🎨 Frontend | `React` `Vue.js` `TypeScript` `Tailwind` |
-| 🔧 Backend | `Node.js` `Go` `Python` `GraphQL` |
-| ☁️ Cloud | `AWS` `GCP` `Kubernetes` `Docker` |
-| 📊 Data | `PostgreSQL` `MongoDB` `Redis` `Elasticsearch` |
-| 🔄 DevOps | `CI/CD` `Jenkins` `GitHub Actions` `ArgoCD` |
-
-## 🌟 Featured Contributions
-
-- 🔥 **VorTex Engine**: High-performance computing framework
-- 🚀 **VΔOS CDN**: Distributed content delivery network
-- 🛠️ **DevOps Tools**: Automation and infrastructure tooling
-
-## 📫 Connect With Me
+## 🌐 Connect
 
 <div align="center">
 
@@ -72,21 +57,11 @@ const projects = {
 
 </div>
 
-## 📈 Weekly Development Breakdown
-
-```text
-Go          ⣿⣿⣿⣿⣿⣿⣿⣿⣀⣀⣀⣀⣀  40%
-JavaScript  ⣿⣿⣿⣿⣿⣿⣀⣀⣀⣀⣀⣀⣀  30%
-Python      ⣿⣿⣿⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀  15%
-Docker      ⣿⣿⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀  10%
-Other       ⣿⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀  05%
-```
-
 ---
 
 <div align="center">
 
-### _"Innovation distinguishes between a leader and a follower" - Steve Jobs_
+**📍 Austin, Texas** | **💼 VorTex** | **🎓 System Architecture**
 
 ![Profile Views](https://komarev.com/ghpvc/?username=likhonsheikh54&color=64ffda&style=flat-square)
 

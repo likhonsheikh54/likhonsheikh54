@@ -17,19 +17,27 @@
 <!-- Tech Universe -->
 <h2>⚡ Tech Universe</h2>
 
-<div style="background: #0a192f; border-radius: 10px; padding: 2rem; margin: 1.5rem auto; max-width: 800px;">
-  <img src="https://raw.githubusercontent.com/likhonsheikh54/likhonsheikh54/main/tech-orbital.svg" alt="Tech Stack" width="100%" height="400">
+<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin: 1.5rem auto; max-width: 1200px;">
+  <!-- Left Side Tech Orbital -->
+  <div style="background: #0a192f; border-radius: 10px; padding: 1.5rem;">
+    <img src="https://raw.githubusercontent.com/likhonsheikh54/likhonsheikh54/main/tech-orbital.svg" alt="Tech Stack" width="100%" height="300" style="object-fit: contain;">
+  </div>
+  
+  <!-- Right Side Matrix Stats -->
+  <div style="background: #0a192f; border-radius: 10px; padding: 1.5rem;">
+    <img src="https://raw.githubusercontent.com/likhonsheikh54/likhonsheikh54/main/matrix-stats.svg" alt="GitHub Stats" width="100%" height="300" style="object-fit: contain;">
+  </div>
 </div>
 
-<!-- GitHub Stats -->
-<div style="background: #0a192f; border-radius: 10px; padding: 2rem; margin: 1.5rem auto; max-width: 800px;">
-  <img src="https://raw.githubusercontent.com/likhonsheikh54/likhonsheikh54/main/matrix-stats.svg" alt="GitHub Stats" width="100%" height="250">
+<!-- Additional Stats/Metrics -->
+<div style="background: #0a192f; border-radius: 10px; padding: 1.5rem; margin: 1.5rem auto; max-width: 1200px;">
+  <img src="https://raw.githubusercontent.com/likhonsheikh54/likhonsheikh54/main/hologram-profile.svg" alt="Hologram Profile" width="100%" height="200" style="object-fit: contain;">
 </div>
 
 <!-- Projects Section -->
 <h2>🚀 Active Projects</h2>
 
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; margin: 1.5rem auto; max-width: 800px;">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; margin: 1.5rem auto; max-width: 1200px;">
   <div style="background: #112240; padding: 1.5rem; border-radius: 10px; border: 1px solid #233554;">
     <h3 style="color: #64ffda;">🌌 VorTex Engine</h3>
     <ul style="list-style: none; padding: 0; text-align: left;">
@@ -52,7 +60,7 @@
 </div>
 
 <!-- Social Links -->
-<div style="margin: 2rem auto; max-width: 800px;">
+<div style="margin: 2rem auto; max-width: 1200px;">
   <a href="https://likhonsheikh.com" style="margin: 0 0.5rem;">
     <img src="https://img.shields.io/badge/Website-likhonsheikh.com-64ffda?style=for-the-badge&logo=google-chrome" alt="Website">
   </a>
@@ -65,7 +73,7 @@
 </div>
 
 <!-- Blog Posts -->
-<div style="background: #112240; border-radius: 10px; padding: 2rem; margin: 1.5rem auto; max-width: 800px;">
+<div style="background: #112240; border-radius: 10px; padding: 2rem; margin: 1.5rem auto; max-width: 1200px;">
   <h2>📚 Latest Articles</h2>
   <div style="text-align: left;">
     <a href="https://likhonsheikh.com/cloud-storage-2025" style="color: #64ffda; text-decoration: none;">▸ Unlimited Cloud Storage Solutions - 2025 Guide</a><br>
@@ -75,7 +83,7 @@
 </div>
 
 <!-- Footer -->
-<div style="background: #112240; border-radius: 10px; padding: 2rem; margin: 1.5rem auto; max-width: 800px;">
+<div style="background: #112240; border-radius: 10px; padding: 2rem; margin: 1.5rem auto; max-width: 1200px;">
   <p style="color: #8892b0; font-style: italic;">"Creating digital experiences that transcend ordinary boundaries"</p>
   <img src="https://komarev.com/ghpvc/?username=likhonsheikh54&color=64ffda&style=flat-square" alt="Profile Views">
   <img src="https://raw.githubusercontent.com/likhonsheikh54/likhonsheikh54/main/header-wave.svg" alt="Footer Wave" width="100%" height="80" style="margin-top: 1rem;">

@@ -10,6 +10,18 @@
       <img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&size=22&duration=3000&pause=1000&color=64FFDA&center=true&vCenter=true&width=435&lines=Full+Stack+Developer;Cloud+Architect;Open+Source+Contributor" alt="Typing SVG">
     </div>
   </div>
+  <!-- Social Links -->
+  <div style="margin: 2rem auto; max-width: 1200px;">
+    <a href="https://likhonsheikh.com" style="margin: 0 0.5rem;">
+      <img src="https://img.shields.io/badge/Website-likhonsheikh.com-64ffda?style=for-the-badge&logo=google-chrome" alt="Website">
+    </a>
+    <a href="https://github.com/likhonsheikh54" style="margin: 0 0.5rem;">
+      <img src="https://img.shields.io/badge/GitHub-likhonsheikh54-64ffda?style=for-the-badge&logo=github" alt="GitHub">
+    </a>
+    <a href="https://linkedin.com/in/likhonsheikh" style="margin: 0 0.5rem;">
+      <img src="https://img.shields.io/badge/LinkedIn-Likhon%20Sheikh-64ffda?style=for-the-badge&logo=linkedin" alt="LinkedIn">
+    </a>
+  </div>
 
   <!-- Tech Universe -->
   <h2>⚡ Tech Universe</h2>
@@ -22,19 +34,6 @@
     <div style="background: #0a192f; border-radius: 10px; padding: 1.5rem;">
       <img src="https://komarev.com/ghpvc/?username=likhonsheikh54&color=64ffda&style=flat-square" alt="Profile Views">
     </div>
-  </div>
-
-  <!-- Social Links -->
-  <div style="margin: 2rem auto; max-width: 1200px;">
-    <a href="https://likhonsheikh.com" style="margin: 0 0.5rem;">
-      <img src="https://img.shields.io/badge/Website-likhonsheikh.com-64ffda?style=for-the-badge&logo=google-chrome" alt="Website">
-    </a>
-    <a href="https://github.com/likhonsheikh54" style="margin: 0 0.5rem;">
-      <img src="https://img.shields.io/badge/GitHub-likhonsheikh54-64ffda?style=for-the-badge&logo=github" alt="GitHub">
-    </a>
-    <a href="https://linkedin.com/in/likhonsheikh" style="margin: 0 0.5rem;">
-      <img src="https://img.shields.io/badge/LinkedIn-Likhon%20Sheikh-64ffda?style=for-the-badge&logo=linkedin" alt="LinkedIn">
-    </a>
   </div>
 
   <!-- Footer -->

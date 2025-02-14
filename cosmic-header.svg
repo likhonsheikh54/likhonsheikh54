@@ -1,0 +1,66 @@
+<svg viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    @keyframes pulse {
+      0% { opacity: 0.3; }
+      50% { opacity: 1; }
+      100% { opacity: 0.3; }
+    }
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+    .star { animation: pulse 3s infinite; }
+    .name { animation: float 6s ease-in-out infinite; }
+  </style>
+  <!-- File identifier -->
+  <text x="10" y="20" font-family="Monaco" font-size="10" fill="#64ffda" opacity="0.5">
+    // cosmic-header.svg - Animated cosmic wave banner
+  </text>
+  
+  <!-- Background with gradient -->
+  <defs>
+    <linearGradient id="cosmicGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a192f"/>
+      <stop offset="50%" style="stop-color:#112240"/>
+      <stop offset="100%" style="stop-color:#233554"/>
+    </linearGradient>
+    <pattern id="stars" width="50" height="50" patternUnits="userSpaceOnUse">
+      <circle cx="25" cy="25" r="1" fill="#64ffda" class="star"/>
+      <circle cx="10" cy="10" r="1" fill="#64ffda" class="star"/>
+      <circle cx="40" cy="40" r="1" fill="#64ffda" class="star"/>
+    </pattern>
+  </defs>
+  
+  <rect width="800" height="200" fill="url(#cosmicGrad)"/>
+  <rect width="800" height="200" fill="url(#stars)"/>
+  
+  <!-- Animated waves -->
+  <path d="M0,100 Q200,150 400,100 T800,100" 
+        fill="none" stroke="#64ffda" stroke-width="2" opacity="0.3">
+    <animate attributeName="d" 
+             dur="10s" 
+             repeatCount="indefinite"
+             values="M0,100 Q200,150 400,100 T800,100;
+                     M0,100 Q200,50 400,100 T800,100;
+                     M0,100 Q200,150 400,100 T800,100"/>
+  </path>
+  
+  <!-- Name text with glow -->
+  <g class="name">
+    <text x="50%" y="50%" text-anchor="middle" font-family="Arial" font-size="48" fill="#64ffda" filter="url(#glow)">
+      LIKHON SHEIKH
+    </text>
+  </g>
+  
+  <!-- Glow filter -->
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+</svg>

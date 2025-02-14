@@ -27,7 +27,7 @@
   </div>
   <!-- Footer -->
   <!-- Tech Universe -->
-  <h2>⚡ Tech Universe</h2>
+  <h2>⚡</h2>
   <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin: 1.5rem auto; max-width: 1200px;">
     <div style="background: #0a192f; border-radius: 10px; padding: 1.5rem;">
       <img src="https://raw.githubusercontent.com/likhonsheikh54/likhonsheikh54/main/tech-orbital.svg" alt="Tech Stack" width="100%" height="300" style="object-fit: contain;">

@@ -1,0 +1,39 @@
+<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    @keyframes hologramScan {
+      0% { transform: translateY(0); opacity: 0.1; }
+      50% { transform: translateY(200px); opacity: 0.5; }
+      100% { transform: translateY(0); opacity: 0.1; }
+    }
+    .scan-line {
+      animation: hologramScan 4s ease-in-out infinite;
+    }
+  </style>
+  
+  <text x="10" y="20" font-family="Monaco" font-size="10" fill="#64ffda" opacity="0.5">
+    // hologram-profile.svg - Holographic profile card
+  </text>
+  
+  <!-- Holographic card -->
+  <defs>
+    <linearGradient id="holoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#64ffda;stop-opacity:0.1"/>
+      <stop offset="50%" style="stop-color:#64ffda;stop-opacity:0.2"/>
+      <stop offset="100%" style="stop-color:#64ffda;stop-opacity:0.1"/>
+    </linearGradient>
+  </defs>
+  
+  <rect x="10" y="30" width="380" height="160" rx="10" 
+        fill="url(#holoGrad)" stroke="#64ffda" stroke-width="2"/>
+  
+  <!-- Scanning line effect -->
+  <rect class="scan-line" x="10" y="0" width="380" height="2" fill="#64ffda"/>
+  
+  <!-- Profile content -->
+  <g font-family="Monaco" font-size="14" fill="#64ffda">
+    <text x="30" y="70">SYSTEM ARCHITECT</text>
+    <text x="30" y="100">LOCATION: AUSTIN, TX</text>
+    <text x="30" y="130">STATUS: ACTIVE</text>
+    <text x="30" y="160">PROJECTS: VORTEX, VΔOS</text>
+  </g>
+</svg>

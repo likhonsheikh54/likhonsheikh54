@@ -14,19 +14,18 @@
   <!-- Tech Universe -->
   <h2>⚡ Tech Universe</h2>
   <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin: 1.5rem auto; max-width: 1200px;">
-    <!-- Left Side Tech Orbital -->
     <div style="background: #0a192f; border-radius: 10px; padding: 1.5rem;">
       <img src="https://raw.githubusercontent.com/likhonsheikh54/likhonsheikh54/main/tech-orbital.svg" alt="Tech Stack" width="100%" height="300" style="object-fit: contain;">
     </div>
-    <!-- Right Side Matrix Stats -->
     <div style="background: #0a192f; border-radius: 10px; padding: 1.5rem;">
       <img src="https://raw.githubusercontent.com/likhonsheikh54/likhonsheikh54/main/matrix-stats.svg" alt="GitHub Stats" width="100%" height="300" style="object-fit: contain;">
     </div>
-  </div>
-
-  <!-- Additional Stats/Metrics -->
-  <div style="background: #0a192f; border-radius: 10px; padding: 1.5rem; margin: 1.5rem auto; max-width: 1200px;">
-    <img src="https://raw.githubusercontent.com/likhonsheikh54/likhonsheikh54/main/hologram-profile.svg" alt="Hologram Profile" width="100%" height="200" style="object-fit: contain;">
+    <div style="background: #0a192f; border-radius: 10px; padding: 1.5rem;">
+      <img src="https://raw.githubusercontent.com/likhonsheikh54/likhonsheikh54/main/hologram-profile.svg" alt="Hologram Profile" width="100%" height="200" style="object-fit: contain;">
+    </div>
+    <div style="background: #0a192f; border-radius: 10px; padding: 1.5rem;">
+      <img src="https://komarev.com/ghpvc/?username=likhonsheikh54&color=64ffda&style=flat-square" alt="Profile Views">
+    </div>
   </div>
 
   <!-- Social Links -->
@@ -44,7 +43,6 @@
 
   <!-- Footer -->
   <div style="background: #112240; border-radius: 10px; padding: 2rem; margin: 1.5rem auto; max-width: 1200px;">
-    <img src="https://komarev.com/ghpvc/?username=likhonsheikh54&color=64ffda&style=flat-square" alt="Profile Views">
     <img src="https://raw.githubusercontent.com/likhonsheikh54/likhonsheikh54/main/header-wave.svg" alt="Footer Wave" width="100%" height="80" style="margin-top: 1rem;">
   </div>
 </div>

@@ -34,30 +34,6 @@
   <img src="https://raw.githubusercontent.com/likhonsheikh54/likhonsheikh54/main/hologram-profile.svg" alt="Hologram Profile" width="100%" height="200" style="object-fit: contain;">
 </div>
 
-<!-- Projects Section -->
-<h2>🚀 Active Projects</h2>
-
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; margin: 1.5rem auto; max-width: 1200px;">
-  <div style="background: #112240; padding: 1.5rem; border-radius: 10px; border: 1px solid #233554;">
-    <h3 style="color: #64ffda;">🌌 VorTex Engine</h3>
-    <ul style="list-style: none; padding: 0; text-align: left;">
-      <li>📊 Status: Production</li>
-      <li>🛠️ Tech: Go, CUDA, React</li>
-      <li>🌍 Scale: Global</li>
-      <li>⚡ Performance: Ultra-High</li>
-    </ul>
-  </div>
-
-  <div style="background: #112240; padding: 1.5rem; border-radius: 10px; border: 1px solid #233554;">
-    <h3 style="color: #64ffda;">🌊 VΔOS Platform</h3>
-    <ul style="list-style: none; padding: 0; text-align: left;">
-      <li>🔧 Type: Enterprise CDN</li>
-      <li>📊 Status: Beta</li>
-      <li>🛠️ Stack: Node.js, Cloudflare, K8s</li>
-      <li>🌍 Reach: Worldwide</li>
-    </ul>
-  </div>
-</div>
 
 <!-- Social Links -->
 <div style="margin: 2rem auto; max-width: 1200px;">

@@ -1,7 +1,7 @@
 <div align="center">
   <!-- Hero Section -->
-  <div style="background: #0a192f; border-radius: 10px; overflow: hidden; margin-bottom: 2rem;">
-    <img src="https://raw.githubusercontent.com/likhonsheikh54/likhonsheikh54/main/cosmic-header.svg" alt="Header" width="100%" height="180">
+    <div style="background: #0a192f; border-radius: 10px; padding: 1.5rem;">
+      <img src="https://raw.githubusercontent.com/likhonsheikh54/likhonsheikh54/main/hologram-profile.svg" alt="Hologram Profile" width="100%" height="200" style="object-fit: contain;">
     <div style="padding: 1rem; display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
       <img src="https://img.shields.io/badge/STATUS-CODING%20DREAMS-64ffda?style=for-the-badge" alt="Status">
       <img src="https://img.shields.io/badge/BASE-AUSTIN%20TX-64ffda?style=for-the-badge" alt="Location">
@@ -31,8 +31,6 @@
   <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin: 1.5rem auto; max-width: 1200px;">
     <div style="background: #0a192f; border-radius: 10px; padding: 1.5rem;">
       <img src="https://raw.githubusercontent.com/likhonsheikh54/likhonsheikh54/main/tech-orbital.svg" alt="Tech Stack" width="100%" height="300" style="object-fit: contain;">
-    <div style="background: #0a192f; border-radius: 10px; padding: 1.5rem;">
-      <img src="https://raw.githubusercontent.com/likhonsheikh54/likhonsheikh54/main/hologram-profile.svg" alt="Hologram Profile" width="100%" height="200" style="object-fit: contain;">
     </div>
   </div>
   </div>

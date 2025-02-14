@@ -59,14 +59,13 @@ const techStack = {
 
 ## 🚀 Active Projects
 
-<!-- Project Grid - Two column layout with responsive sizing -->
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 20px 0;">
-
-<div style="background-color: #0a192f; padding: 20px; border-radius: 10px;">
+<!-- Project cards with wave animation -->
+<table>
+<tr>
+<td width="50%">
 
 ### 🌌 VorTex Engine
-<img src="header-wave.svg" alt="Header Wave" width="100%" height="50">
-
+![Header Wave](header-wave.svg)
 ```python
 class VorTex:
     """High-performance computing engine"""
@@ -75,13 +74,11 @@ class VorTex:
     scale = "Global"
 ```
 
-</div>
-
-<div style="background-color: #0a192f; padding: 20px; border-radius: 10px;">
+</td>
+<td width="50%">
 
 ### 🌊 VΔOS Platform
-<img src="header-wave.svg" alt="Header Wave" width="100%" height="50">
-
+![Header Wave](header-wave.svg)
 ```javascript
 const VΔOS = {
   type: "CDN Platform",
@@ -91,9 +88,9 @@ const VΔOS = {
 };
 ```
 
-</div>
-
-</div>
+</td>
+</tr>
+</table>
 
 <br>
 

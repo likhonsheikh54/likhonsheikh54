@@ -2,7 +2,7 @@
 
 <!-- Hero Section -->
 <div style="background: linear-gradient(to right, #0a192f, #112240);">
-  <img src="https://raw.githubusercontent.com/likhonsheikh54/likhonsheikh54/main/assets/header.svg" alt="Header" width="100%">
+  <img src="https://raw.githubusercontent.com/likhonsheikh54/likhonsheikh54/main/cosmic-header.svg" alt="Header" width="100%">
   
   [![Status](https://img.shields.io/badge/Status-Coding%20Dreams-64ffda?style=for-the-badge)](https://likhonsheikh.com)
   [![Location](https://img.shields.io/badge/Base-Austin%20TX-64ffda?style=for-the-badge&logo=google-maps)](https://goo.gl/maps/Austin)
@@ -17,12 +17,12 @@
 ## ⚡ Tech Universe
 
 <div style="background: #0a192f; padding: 20px; border-radius: 10px; margin: 20px 0;">
-  <img src="https://raw.githubusercontent.com/likhonsheikh54/likhonsheikh54/main/assets/tech-orbital.svg" alt="Tech Stack" width="100%">
+  <img src="https://raw.githubusercontent.com/likhonsheikh54/likhonsheikh54/main/tech-orbital.svg" alt="Tech Stack" width="100%">
 </div>
 
 <!-- GitHub Metrics -->
 <div style="background: #0a192f; padding: 20px; border-radius: 10px; margin: 20px 0;">
-  <img src="https://github.com/likhonsheikh54/likhonsheikh54/blob/main/dist/metrics.svg" alt="Metrics" width="100%">
+  <img src="https://raw.githubusercontent.com/likhonsheikh54/likhonsheikh54/main/dist/metrics.svg" alt="Metrics" width="100%">
 </div>
 
 <!-- Active Projects -->
@@ -52,6 +52,11 @@
 </div>
 </div>
 
+<!-- Matrix Stats Section -->
+<div style="background: #0a192f; padding: 20px; border-radius: 10px; margin: 20px 0;">
+  <img src="https://raw.githubusercontent.com/likhonsheikh54/likhonsheikh54/main/matrix-stats.svg" alt="Matrix Stats" width="100%">
+</div>
+
 <!-- Digital Presence -->
 ## 🌐 Digital Cosmos
 
@@ -78,7 +83,8 @@
   
   ![Profile Views](https://komarev.com/ghpvc/?username=likhonsheikh54&color=64ffda&style=flat-square)
   
-  <img src="https://raw.githubusercontent.com/likhonsheikh54/likhonsheikh54/main/assets/footer.svg" alt="Footer" width="100%">
+  <img src="https://raw.githubusercontent.com/likhonsheikh54/likhonsheikh54/main/header-wave.svg" alt="Footer Wave" width="100%">
 </div>
 
 </div>
+

@@ -1,8 +1,4 @@
 <div align="center">
-  
-<!-- Main Header -->
-<img src="cosmic-header.svg" alt="Cosmic Header" width="100%" height="200">
-
 <!-- Status Badges -->
 <p align="center">
   <a href="https://likhonsheikh.com">
@@ -30,17 +26,6 @@
 
 <!-- Tech Stack -->
 <div align="left" style="width: 80%; margin: 20px auto; background-color: #0a192f; padding: 20px; border-radius: 10px;">
-const techStack = {
-  languages: ['JavaScript', 'Go', 'Python', 'TypeScript'],
-  frameworks: ['React', 'Node.js', 'Express', 'Next.js'],
-  cloud: ['AWS', 'GCP', 'Cloudflare'],
-  tools: ['Docker', 'Kubernetes', 'Terraform'],
-  databases: ['PostgreSQL', 'MongoDB', 'Redis']
-};
-</div>
-</div>
-
-<br>
 
 ## 📊 Matrix Analytics
 
@@ -86,22 +71,6 @@ const VΔOS = {
 
 <br>
 
-## 💫 Weekly Coding Flow
-
-<!-- Mermaid Chart -->
-<div align="center" style="width: 70%; margin: 0 auto; background-color: #0a192f; padding: 20px; border-radius: 10px;">
-%%{init: {'theme': 'dark', 'themeVariables': { 'primaryColor': '#64ffda', 'textColor': '#64ffda', 'lineColor': '#64ffda'}}}%%
-pie
-    title Technology Distribution
-    "Go" : 40
-    "JavaScript" : 30
-    "Python" : 15
-    "DevOps" : 10
-    "Research" : 5
-
-</div>
-
-<br>
 
 ## 🌐 Digital Cosmos
 
@@ -120,18 +89,7 @@ pie
   </a>
 </p>
 
-<!-- Contribution Stats -->
-<div style="width: 80%; margin: 20px auto; background-color: #0a192f; padding: 20px; border-radius: 10px;">
-const contributions = {
-  code: "1.2k commits",
-  projects: "15 repositories",
-  reviews: "200+ pull requests",
-  community: "Active mentor"
-};
 
-</div>
-
-<br>
 
 <!-- Footer -->
 <div style="margin-top: 40px;">

@@ -48,19 +48,11 @@
   </a>
 </div>
 
-<!-- Blog Posts -->
-<div style="background: #112240; border-radius: 10px; padding: 2rem; margin: 1.5rem auto; max-width: 1200px;">
-  <h2>📚 Latest Articles</h2>
-  <div style="text-align: left;">
-    <a href="https://likhonsheikh.com/cloud-storage-2025" style="color: #64ffda; text-decoration: none;">▸ Unlimited Cloud Storage Solutions - 2025 Guide</a><br>
-    <a href="https://likhonsheikh.com/social-engineering" style="color: #64ffda; text-decoration: none;">▸ Understanding Social Engineering Attacks</a><br>
-    <a href="https://likhonsheikh.com/android-security" style="color: #64ffda; text-decoration: none;">▸ Android Security: Hidden Features You Should Know</a>
-  </div>
-</div>
+
 
 <!-- Footer -->
 <div style="background: #112240; border-radius: 10px; padding: 2rem; margin: 1.5rem auto; max-width: 1200px;">
-  <p style="color: #8892b0; font-style: italic;">"Creating digital experiences that transcend ordinary boundaries"</p>
+
   <img src="https://komarev.com/ghpvc/?username=likhonsheikh54&color=64ffda&style=flat-square" alt="Profile Views">
   <img src="https://raw.githubusercontent.com/likhonsheikh54/likhonsheikh54/main/header-wave.svg" alt="Footer Wave" width="100%" height="80" style="margin-top: 1rem;">
 </div>

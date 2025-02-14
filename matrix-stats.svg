@@ -1,0 +1,45 @@
+<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    @keyframes typewriter {
+      from { stroke-dashoffset: 100; }
+      to { stroke-dashoffset: 0; }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .stat-line { 
+      stroke-dasharray: 100;
+      animation: typewriter 2s linear forwards;
+    }
+    .stat-text {
+      animation: fadeIn 0.5s linear forwards;
+      animation-delay: 1.5s;
+      opacity: 0;
+    }
+  </style>
+  
+  <text x="10" y="20" font-family="Monaco" font-size="10" fill="#64ffda" opacity="0.5">
+    // matrix-stats.svg - Matrix-inspired statistics display
+  </text>
+  
+  <!-- Matrix background effect -->
+  <rect width="400" height="200" fill="#0a192f"/>
+  <g font-family="Monaco" font-size="12" fill="#64ffda" opacity="0.1">
+    <text x="20" y="40">01001100 01001001 01001011</text>
+    <text x="20" y="60">01001000 01001111 01001110</text>
+    <text x="20" y="80">01010011 01001000 01000101</text>
+  </g>
+  
+  <!-- Stats display -->
+  <g transform="translate(50, 50)">
+    <path d="M0,20 L300,20" class="stat-line" stroke="#64ffda" fill="none"/>
+    <text x="0" y="15" class="stat-text" fill="#64ffda" font-family="Monaco">Commits: 1.2k</text>
+    
+    <path d="M0,60 L300,60" class="stat-line" stroke="#64ffda" fill="none"/>
+    <text x="0" y="55" class="stat-text" fill="#64ffda" font-family="Monaco">Pull Requests: 156</text>
+    
+    <path d="M0,100 L300,100" class="stat-line" stroke="#64ffda" fill="none"/>
+    <text x="0" y="95" class="stat-text" fill="#64ffda" font-family="Monaco">Contributions: 234</text>
+  </g>
+</svg>

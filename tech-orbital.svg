@@ -1,0 +1,49 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes counter-rotate {
+      from { transform: rotate(360deg); }
+      to { transform: rotate(0deg); }
+    }
+    .orbit { animation: rotate 20s linear infinite; }
+    .tech-label { animation: counter-rotate 20s linear infinite; }
+  </style>
+  
+  <text x="10" y="20" font-family="Monaco" font-size="10" fill="#64ffda" opacity="0.5">
+    // tech-orbital.svg - Dynamic tech stack visualization
+  </text>
+  
+  <!-- Orbital rings -->
+  <g transform="translate(200 200)">
+    <circle r="160" fill="none" stroke="#64ffda" stroke-width="1" stroke-dasharray="4,4" opacity="0.3"/>
+    <circle r="120" fill="none" stroke="#64ffda" stroke-width="1" stroke-dasharray="4,4" opacity="0.5"/>
+    <circle r="80" fill="none" stroke="#64ffda" stroke-width="1" stroke-dasharray="4,4" opacity="0.7"/>
+    
+    <!-- Tech orbits -->
+    <g class="orbit">
+      <g transform="rotate(0)">
+        <circle cx="160" cy="0" r="20" fill="#112240" stroke="#64ffda"/>
+        <text x="160" y="0" class="tech-label" text-anchor="middle" dominant-baseline="middle" 
+              fill="#64ffda" font-family="Arial" font-size="12">React</text>
+      </g>
+      <g transform="rotate(90)">
+        <circle cx="120" cy="0" r="20" fill="#112240" stroke="#64ffda"/>
+        <text x="120" y="0" class="tech-label" text-anchor="middle" dominant-baseline="middle"
+              fill="#64ffda" font-family="Arial" font-size="12">Node</text>
+      </g>
+      <g transform="rotate(180)">
+        <circle cx="160" cy="0" r="20" fill="#112240" stroke="#64ffda"/>
+        <text x="160" y="0" class="tech-label" text-anchor="middle" dominant-baseline="middle"
+              fill="#64ffda" font-family="Arial" font-size="12">Go</text>
+      </g>
+      <g transform="rotate(270)">
+        <circle cx="120" cy="0" r="20" fill="#112240" stroke="#64ffda"/>
+        <text x="120" y="0" class="tech-label" text-anchor="middle" dominant-baseline="middle"
+              fill="#64ffda" font-family="Arial" font-size="12">AWS</text>
+      </g>
+    </g>
+  </g>
+</svg>

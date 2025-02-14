@@ -1,9 +1,9 @@
 <div align="center">
   
-<!-- Main Header - Full width -->
+<!-- Main Header -->
 <img src="cosmic-header.svg" alt="Cosmic Header" width="100%" height="200">
 
-<!-- Status Badges - Centered with spacing -->
+<!-- Status Badges -->
 <p align="center">
   <a href="https://likhonsheikh.com">
     <img src="https://img.shields.io/badge/Status-Coding%20Dreams-64ffda?style=for-the-badge" alt="Status" height="30">
@@ -14,7 +14,7 @@
   </a>
 </p>
 
-<!-- Profile Card - 80% width for larger screens -->
+<!-- Profile Card -->
 <img src="hologram-profile.svg" alt="Hologram Profile" width="80%" height="200" style="max-width: 800px;">
 
 </div>
@@ -24,14 +24,12 @@
 ## ⚡ Tech Universe
 
 <div align="center">
-  
-<!-- Tech Orbital - 70% width for better visibility -->
+
+<!-- Tech Orbital -->
 <img src="tech-orbital.svg" alt="Tech Orbital" width="70%" height="400" style="max-width: 600px;">
 
-<!-- Tech Stack Code Block - Fixed width -->
+<!-- Tech Stack -->
 <div align="left" style="width: 80%; margin: 20px auto; background-color: #0a192f; padding: 20px; border-radius: 10px;">
-
-```javascript
 const techStack = {
   languages: ['JavaScript', 'Go', 'Python', 'TypeScript'],
   frameworks: ['React', 'Node.js', 'Express', 'Next.js'],
@@ -39,8 +37,6 @@ const techStack = {
   tools: ['Docker', 'Kubernetes', 'Terraform'],
   databases: ['PostgreSQL', 'MongoDB', 'Redis']
 };
-```
-
 </div>
 </div>
 
@@ -49,8 +45,8 @@ const techStack = {
 ## 📊 Matrix Analytics
 
 <div align="center">
-  
-<!-- Matrix Stats - 90% width for readability -->
+
+<!-- Matrix Stats -->
 <img src="matrix-stats.svg" alt="Matrix Stats" width="90%" height="200" style="max-width: 800px;">
 
 </div>
@@ -59,34 +55,30 @@ const techStack = {
 
 ## 🚀 Active Projects
 
-<!-- Project cards with wave animation -->
+<!-- Projects -->
 <table>
 <tr>
 <td width="50%">
 
 ### 🌌 VorTex Engine
 ![Header Wave](header-wave.svg)
-```python
 class VorTex:
     """High-performance computing engine"""
     status = "Production"
     tech = ["Go", "CUDA", "React"]
     scale = "Global"
-```
 
 </td>
 <td width="50%">
 
 ### 🌊 VΔOS Platform
 ![Header Wave](header-wave.svg)
-```javascript
 const VΔOS = {
   type: "CDN Platform",
   status: "Beta",
   stack: ["Node.js", "Cloudflare", "K8s"],
   reach: "Worldwide"
 };
-```
 
 </td>
 </tr>
@@ -96,10 +88,8 @@ const VΔOS = {
 
 ## 💫 Weekly Coding Flow
 
-<!-- Mermaid Chart - Fixed width container -->
+<!-- Mermaid Chart -->
 <div align="center" style="width: 70%; margin: 0 auto; background-color: #0a192f; padding: 20px; border-radius: 10px;">
-
-```mermaid
 %%{init: {'theme': 'dark', 'themeVariables': { 'primaryColor': '#64ffda', 'textColor': '#64ffda', 'lineColor': '#64ffda'}}}%%
 pie
     title Technology Distribution
@@ -108,7 +98,6 @@ pie
     "Python" : 15
     "DevOps" : 10
     "Research" : 5
-```
 
 </div>
 
@@ -118,7 +107,7 @@ pie
 
 <div align="center">
 
-<!-- Social Links - Consistent badge sizing -->
+<!-- Social Links -->
 <p align="center" style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
   <a href="https://likhonsheikh.com">
     <img src="https://img.shields.io/badge/Website-likhonsheikh.com-64ffda?style=for-the-badge&logo=google-chrome" alt="Website" height="30">
@@ -131,17 +120,14 @@ pie
   </a>
 </p>
 
-<!-- Contribution Stats - Styled container -->
+<!-- Contribution Stats -->
 <div style="width: 80%; margin: 20px auto; background-color: #0a192f; padding: 20px; border-radius: 10px;">
-
-```javascript
 const contributions = {
   code: "1.2k commits",
   projects: "15 repositories",
   reviews: "200+ pull requests",
   community: "Active mentor"
 };
-```
 
 </div>
 
@@ -155,21 +141,3 @@ const contributions = {
 </div>
 
 </div>
-
-<!-- SVG Documentation -->
-<!--
-SVG Components (with optimized sizes):
-1. cosmic-header.svg - 100% width, 200px height
-2. hologram-profile.svg - 80% width, 200px height
-3. tech-orbital.svg - 70% width, 400px height
-4. matrix-stats.svg - 90% width, 200px height
-5. header-wave.svg - 100% width, 50px height
-
-Styling Notes:
-- All containers have consistent border-radius: 10px
-- Background color: #0a192f
-- Accent color: #64ffda
-- Consistent padding: 20px
-- Responsive grid layouts
-- Fixed height badges: 30px
--->

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100">
+  <!-- Background -->
+  <rect width="200" height="100" fill="#CB0000"/>
+  
+  <!-- Inner White Box -->
+  <rect x="10" y="10" width="180" height="80" fill="white"/>
+  
+  <!-- LikhonJS Logo (Hacker Style) -->
+  <g fill="#CB0000">
+    <!-- L -->
+    <rect x="25" y="30" width="15" height="40"/>
+    <rect x="25" y="60" width="20" height="10"/>
+    
+    <!-- I -->
+    <rect x="50" y="30" width="10" height="40"/>
+    
+    <!-- K -->
+    <rect x="70" y="30" width="10" height="40"/>
+    <polygon points="80,50 100,30 110,30 90,50 110,70 100,70"/>
+    
+    <!-- H -->
+    <rect x="120" y="30" width="10" height="40"/>
+    <rect x="140" y="30" width="10" height="40"/>
+    <rect x="120" y="48" width="30" height="10"/>
+    
+    <!-- O -->
+    <rect x="160" y="30" width="20" height="40"/>
+    <rect x="165" y="35" width="10" height="30" fill="white"/>
+    
+    <!-- N -->
+    <rect x="190" y="30" width="10" height="40"/>
+    <polygon points="190,30 200,30 200,70 190,70 190,50 200,30"/>
+  </g>
+  
+  <!-- "JS" Text -->
+  <text x="140" y="85" fill="white" font-family="Arial, sans-serif" font-size="18" font-weight="bold">JS</text>
+</svg>
